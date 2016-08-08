@@ -8,6 +8,16 @@
 </head>
 <body>
 
+<header>
+  <% if signed_in? %>
+    Logged in as <%= current_user.username %>
+    <%= button_to "Log out", session_url, method: "delete" %>
+  <% else %>
+    <%= link_to "Sign in", new_session_url %>  |
+    <%= link_to "New user", new_user_url %>
+  <% end %>
+</header>
+
 <%= yield %>
 
 </body>
